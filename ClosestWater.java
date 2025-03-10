@@ -6,7 +6,7 @@ public class ClosestWater {
     public static void main(String[] args) {
         try {
             BufferedReader br = new BufferedReader(new FileReader("cauldron.in"));
-            int randomInteger = Integer.parseInt(br.readLine().trim());
+            int problem = Integer.parseInt(br.readLine().trim());
             String[] secondRow = br.readLine().trim().split(" ");
             int N = Integer.parseInt(secondRow[0]);
             int K = Integer.parseInt(secondRow[1]);
@@ -18,7 +18,7 @@ public class ClosestWater {
             }
             br.close();
 
-            Result result = knapsack(N, K, C, volumes);
+            Result result = cauldron(N, K, C, volumes);
             System.out.println("Maximum value: " + result.maxValue);
             System.out.println("Jars used: " + result.jarsUsed);
 
@@ -43,7 +43,7 @@ public class ClosestWater {
         }
     }
 
-    public static Result knapsack(int N, int K, int C, int[] volumes) {
+    public static Result cauldron(int N, int K, int C, int[] volumes) {
         int[] dp = new int[K + 1];
         int[] count = new int[K + 1];
         List<Integer>[] jarsUsed = new List[K + 1];
